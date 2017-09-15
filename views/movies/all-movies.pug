@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Now Playing Movies
+  .row
+    .col-xs-12
+      ul.list-group
+        each movie in mdb.results
+          li.list-group-item 
+            h3 #{movie.title}
+            img.bgimage(src="https://image.tmdb.org/t/p/w500/" + movie.backdrop_path)
+            h4 Synopsis
+            p #{movie.overview}
+            h4 Release Date
+            p #{movie.release_date}
+            h4 Average Ratings
+            p #{movie.vote_average}
+  .row
+    .col-xs-12
+      .row  
+        .col-xs-6.col-sm-2
+          a(href=previousUrl)
+            p.strong << previous
+        .col-xs-6.col-sm-2.text-right.pull-right
+          a(href=nextUrl)
+            p.strong next >>
+        .col-xs-12.col-sm-8
+          ul.list-inline.text-center
+            each number in pagesArray
+              - var href = "/movies/?page=" + number;
+              li(active= number===page ? 'active' : null)
+                a(href=href) #{number}             
