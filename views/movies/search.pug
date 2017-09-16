@@ -1,8 +1,13 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 Now Playing Movies
+  .row
+    .col-xs-12
+      .well
+        h4 Search For A Movie:
+        form(action="/movies/search")
+          input(type="text" name="query" id="quicksearch" class="form-control" placeholder="...what movie are you looking for?")
+          button(type="submit" role="button" class="btn btn-default") Search
   .row
     .col-xs-12
       ul.list-group
@@ -33,4 +38,4 @@ block content
             each number in pagesArray
               - var href = "/movies/?page=" + number;
               li(active= number===page ? 'active' : null)
-                a(href=href) #{number}             
+                a(href=href) #{number}     

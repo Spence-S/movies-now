@@ -16,12 +16,13 @@ block content
       h2 Search for a specific movie!
       p The search is utilizing the MDB search movie API, and is called from the server, not the client. Take a peek at the beautiful spinners!.
       p
-        a.btn.btn-default(href='#', role='button') 
+        a.btn.btn-default(href="/movies/search?query=a", role='button') 
           i.fa.fa-search
           | Search »
   .row
     .col-xs-12.text-center
       .well
         h4 Quick Search:
-        input(type="text" id="quicksearch" class="form-control" placeholder="...what movie are you looking for?")
-        button(type="submit" role="button" class="btn btn-default") Search
+        form(action="/movies/search")
+          input(type="text" name="query" id="quicksearch" class="form-control" placeholder="...what movie are you looking for?")
+          button(type="submit" role="button" class="btn btn-default") Search
