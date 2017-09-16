@@ -32,5 +32,7 @@ block content
           ul.list-inline.text-center
             each number in pagesArray
               - var href = "/movies/?page=" + number;
-              li(active= number===page ? 'active' : null)
-                a(href=href) #{number}             
+              if number === page
+                a.active-page(href=href) #{number}    
+              else   
+                a(href=href) #{number}        

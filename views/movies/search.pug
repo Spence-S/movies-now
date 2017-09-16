@@ -36,6 +36,6 @@ block content
         .col-xs-12.col-sm-8
           ul.list-inline.text-center
             each number in pagesArray
-              - var href = "/movies/?page=" + number;
+              - var href = `/movies/search?query=${query}&page=${number}`;
               li(active= number===page ? 'active' : null)
                 a(href=href) #{number}     
