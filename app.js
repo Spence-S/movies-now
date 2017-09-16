@@ -32,7 +32,6 @@ dotenv.load({ path: '.env.example' });
  */
 
 const homeRoutes = require('./routes/home');
-const userRoutes = require('./routes/user');
 const movieRoutes = require('./routes/movies');
 const contactRoutes = require('./routes/contact');
 
@@ -120,8 +119,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // , { maxAge: 31557600
  * Primary app routes.
  */
 app.use(homeRoutes);
-app.use(userRoutes);
-app.use('contact', contactRoutes);
+app.use('/contact', contactRoutes);
 app.use('/movies', movieRoutes);
 
 /**
