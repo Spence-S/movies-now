@@ -13,11 +13,10 @@ block content
       ul.list-group
         each movie in mdb.results
             li.list-group-item.list-group-item-movie
+              h2 #{movie.title}
               if movie.backdrop_path
                 - var src = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
                 img.bgimage(src=src)
-              .movie-overlay
-              h3 #{movie.title}
               h4 Synopsis
               p #{movie.overview}
               h4 Release Date

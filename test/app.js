@@ -9,42 +9,30 @@ describe('GET /', () => {
   });
 });
 
-describe('GET /login', () => {
+describe('GET /movies', () => {
   it('should return 200 OK', (done) => {
     request(app)
-      .get('/login')
+      .get('/movies')
       .expect(200, done);
+  });
+
+  it('should respond with JSON', () => {
+    request(app)
+      .get('/movies')
+      .expect('Content-Type', 'application/json');
   });
 });
 
-describe('GET /signup', () => {
+describe('GET /movies/search', () => {
   it('should return 200 OK', (done) => {
     request(app)
-      .get('/signup')
+      .get('/movies/search')
       .expect(200, done);
   });
-});
 
-describe('GET /api', () => {
-  it('should return 200 OK', (done) => {
+  it('should respond with JSON', () => {
     request(app)
-      .get('/api')
-      .expect(200, done);
-  });
-});
-
-describe('GET /contact', () => {
-  it('should return 200 OK', (done) => {
-    request(app)
-      .get('/contact')
-      .expect(200, done);
-  });
-});
-
-describe('GET /random-url', () => {
-  it('should return 404', (done) => {
-    request(app)
-      .get('/reset')
-      .expect(404, done);
+      .get('/movies/search')
+      .expect('Content-Type', 'application/json');
   });
 });
