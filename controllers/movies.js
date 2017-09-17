@@ -62,10 +62,6 @@ exports.searchMovies = (req, res) => {
 
   moviedb.searchMovie({ query, page }, (err, mdbres) => {
     const totalPages = mdbres.total_pages <= 50 ? mdbres.total_pages : 50;
-    let splits;
-    if (mdbres.total_pages >= 50) {
-      splits = mdbres.total_pages / 50;
-    }
     const pagesArray = [];
     for (let i = 1; i <= totalPages; i++) {
       pagesArray.push(i);
